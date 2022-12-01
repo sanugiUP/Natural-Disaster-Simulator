@@ -1,0 +1,8 @@
+10 fire Midtown
+9 fire Easttown
+20 fire Midtown
+5 chemical Westown
+25 chemical Northedge
+10 flood Midtown
+
+

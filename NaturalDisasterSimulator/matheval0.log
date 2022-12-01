@@ -1,0 +1,116 @@
+Jun 01, 2022 3:41:31 PM edu.curtin.emergencysim.SimulatorApp main
+INFO: Reading Input File
+Jun 01, 2022 3:41:31 PM edu.curtin.emergencysim.SimulatorApp main
+FINE: Data From Input File : [10 fire Midtown, 9 fire Easttown, 5 chemical Westown, 25 chemical Northedge, 10 flood Midtown]
+Jun 01, 2022 3:41:31 PM edu.curtin.emergencysim.controller.Simulator simulation
+INFO: Simulation Begins
+Jun 01, 2022 3:41:36 PM edu.curtin.emergencysim.observers.ChemicalSpill <init>
+FINE: Initial State : chemical at Westown at Start
+Jun 01, 2022 3:41:40 PM edu.curtin.emergencysim.observers.Fire <init>
+FINE: Initial State : fire at Easttown at Low
+Jun 01, 2022 3:41:41 PM edu.curtin.emergencysim.observers.Fire <init>
+FINE: Initial State : fire at Midtown at Low
+Jun 01, 2022 3:41:41 PM edu.curtin.emergencysim.observers.Flood <init>
+FINE: Initial State : flood at Midtown at Start
+Jun 01, 2022 3:41:41 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Left the Emergency Location :chemical - Westown
+Jun 01, 2022 3:41:46 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Westown #1
+Jun 01, 2022 3:41:50 PM edu.curtin.emergencysim.states.Low run
+FINE: State Changed : fire at Easttown to High
+Jun 01, 2022 3:41:51 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Left the Emergency Location :fire - Midtown
+Jun 01, 2022 3:41:51 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Arrived at the Emergency Location :fire + Easttown
+Jun 01, 2022 3:41:51 PM edu.curtin.emergencysim.states.Low run
+FINE: State Changed : fire at Midtown to High
+Jun 01, 2022 3:41:52 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Westown #2
+Jun 01, 2022 3:41:54 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : fire at Easttown #1
+Jun 01, 2022 3:41:56 PM edu.curtin.emergencysim.observers.ChemicalSpill <init>
+FINE: Initial State : chemical at Northedge at Start
+Jun 01, 2022 3:41:59 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : fire at Easttown #2
+Jun 01, 2022 3:41:59 PM edu.curtin.emergencysim.states.High run
+FINE: State Changed : fire at Easttown to Low
+Jun 01, 2022 3:41:59 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : flood at Midtown #1
+Jun 01, 2022 3:42:00 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Northedge #1
+Jun 01, 2022 3:42:04 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : fire at Easttown #3
+Jun 01, 2022 3:42:04 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : fire at Midtown #1
+Jun 01, 2022 3:42:05 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Westown #3
+Jun 01, 2022 3:42:06 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Arrived at the Emergency Location :fire + Midtown
+Jun 01, 2022 3:42:06 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Arrived at the Emergency Location :chemical + Northedge
+Jun 01, 2022 3:42:06 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Arrived at the Emergency Location :flood + Midtown
+Jun 01, 2022 3:42:06 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : fire at Midtown #1
+Jun 01, 2022 3:42:08 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : fire at Midtown #2
+Jun 01, 2022 3:42:11 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : fire at Midtown #2
+Jun 01, 2022 3:42:11 PM edu.curtin.emergencysim.states.Start run
+FINE: State Changed : flood at Midtown to End
+Jun 01, 2022 3:42:12 PM edu.curtin.emergencysim.states.Low cleanUp
+FINE: State Changed : fire at Easttown to End
+Jun 01, 2022 3:42:14 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : fire at Midtown #3
+Jun 01, 2022 3:42:14 PM edu.curtin.emergencysim.states.High run
+FINE: State Changed : fire at Midtown to Low
+Jun 01, 2022 3:42:17 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Westown #1
+Jun 01, 2022 3:42:21 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Left the Emergency Location :fire - Easttown
+Jun 01, 2022 3:42:27 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Left the Emergency Location :chemical - Northedge
+Jun 01, 2022 3:42:27 PM edu.curtin.emergencysim.states.Low cleanUp
+FINE: State Changed : fire at Midtown to End
+Jun 01, 2022 3:42:28 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Northedge #1
+Jun 01, 2022 3:42:29 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Westown #2
+Jun 01, 2022 3:42:39 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Northedge #2
+Jun 01, 2022 3:42:41 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Left the Emergency Location :flood - Midtown
+Jun 01, 2022 3:42:41 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Arrived at the Emergency Location :chemical + Westown
+Jun 01, 2022 3:42:41 PM edu.curtin.emergencysim.controller.Simulator extractPolledInformation
+FINE: Responders Who have Left the Emergency Location :fire - Midtown
+Jun 01, 2022 3:42:41 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Westown #4
+Jun 01, 2022 3:42:51 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Northedge #2
+Jun 01, 2022 3:42:55 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Westown #3
+Jun 01, 2022 3:42:58 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Northedge #3
+Jun 01, 2022 3:43:00 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Westown #4
+Jun 01, 2022 3:43:03 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Westown #5
+Jun 01, 2022 3:43:04 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Westown #6
+Jun 01, 2022 3:43:06 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Westown #5
+Jun 01, 2022 3:43:06 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Northedge #3
+Jun 01, 2022 3:43:07 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Westown #7
+Jun 01, 2022 3:43:12 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Northedge #4
+Jun 01, 2022 3:43:17 PM edu.curtin.emergencysim.observers.Emergency updateCasualty
+FINE: Casualty Count Updated : chemical at Northedge #4
+Jun 01, 2022 3:43:20 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Northedge #5
+Jun 01, 2022 3:43:27 PM edu.curtin.emergencysim.observers.Emergency updateDamage
+FINE: Damage Count Updated : chemical at Northedge #6
+Jun 01, 2022 3:43:33 PM edu.curtin.emergencysim.controller.Simulator simulation
+INFO: Simulation Ends

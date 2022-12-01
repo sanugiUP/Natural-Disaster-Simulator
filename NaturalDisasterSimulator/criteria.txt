@@ -1,0 +1,96 @@
+(2) Clear and distinct package/class/interface/method responsibilities :
+		Package 		: emergencysim
+		Sub-directories 	: controller, factories, fileio, miscellaneous, observers, responders and states
+
+    The package- emergencysim, contains the SimulatorApp.java file and the above mentioned sub-directories, where 
+    SimulatorApp.java class contains the main method and is the entry point into the application. 
+
+    For sub-directories, 
+	controller contains Simulator.java file which is the class responsible for the control procedure of the 
+	simulation and also acts as the Subject which generate events that the Observers need to observe for. 
+
+	factories contains EmergencyFactory.java file which contains a factory method that creates and returns the 
+	relavant Emergency object depending on the requirement. A seperate class was created for this because the
+	factory method did not really fit anywhere eles and also its a part of the dependancy injection implementation. 
+
+	fileio contains FileIO.java file and the ValidationException.java file. FileIO.java handles the fileIO component
+ 	of the simulation which involves reading the input file containing emergencies and returning it as a List of
+	Strings. This class make use of the custom exception-ValidationException which is thrown when the input file is
+	invalid and there are no single valid entries. If there are valid entries with invalid entries, the FileIO class
+	ignores the invalid entries and send the valid entries to the simulation. If a ValidationException is thrown, it 
+	is caught in the SimulatorApp. 
+
+	miscellaneous contains EmergencyDataRetriever.java file and PollDataRetriever.java file and SearchAndCheck.java file.
+	EmergencyDataRetriever is responsible for breaking-down a single emergency entry from the input file into parts (Time, 
+	Type and Location) whereas PollDataRetriever is responsible for breaking-down polled entries from responderCommImpl 
+	poll() method. The SearchAndCheck is a generic class that check if a collection of any type contains the same type
+	object its looking for and return true or false, as well as it also searches a collection of any type object in to String
+	that matches a particular String. The reason why these java file are in a sub-directory called miscellaneous is because 
+	though they indirectly contribute to the simulation, they are not a direct part of it. All three of these files contain 
+	clasess that each help the simulation differently. Thereby they offer very different functionality. They are put together 
+      in miscellaneous as helper clasess that doesnt share any similarities except that they are both used in the Simulation. 
+
+	observers contains Emergency.java, ChemicalSpill.java, Fire.java, Flood.java and the TimeObserver.java interface. 
+	The observer pattern is used to signal each emergency that occurs, a second in the simulation has passed. Thereby,
+	each of the emergencies from the input file becomes Observers that observe for the seconds passed since the simulation
+	began. All the clasess relating to the Observer Pattern including the Observer interface is grouped into a seperate
+	sub-directory called observers.
+
+	responders contain ResponderComm.java inteface and the ResponderCommImpl.java file which implements the inteface. 
+	Since both of these are considered test data and outside to the simulation, they are grouped together in a sub-
+	directory called responders. 
+
+	states contains EmergencyState.java interface, End.java, High.java, Start.java and Low.java. These are the states that
+	a emergency can be in at a time. A common interface called EmergencyState is used to reduce coupling between different 
+	functionalities. EmergencyState implements a common inteface for all the States an emergency can have since they share
+	similar functionality and attributes. 
+
+
+(3) Appropriate error handling and logging : 
+		Error Handling : A seperate Custom Exception class called ValidationException is used to handle errors that
+				     can occur when validating the input file. ValidationException is thrown in the FileIO class
+				     and caught in the main along with InterruptedException which could occur when using Thread.sleep()
+				     and FileNotFoundException which can occur when the file specified cannot be found. 
+
+		Logging 	   : Logging is used to fairly. Information about emergency state change, data read from input file,
+				     number of casulaties per emergency and number of damages are logged. 
+
+
+(4) Implementation of dependency injection :
+		As metioned above, a class containing a factory method was used to avoid hard-coded dependancy that could have
+		occured through direct Emergency Object creation. All the clasess in the package makes no static method calls
+		to other clasess. Reference to most of the objects are imported through the constructors. However, when changing
+		states, a new State Object is created at each point. Further for the Generic class SearchAndCheck, the Emergency
+		Factory.java file contains two methods that inject instantiated and paramaterized SearchAndCheck Objects to the
+		relavant caller class according to requirement. For an example, the Injector method - parameterizeString() in
+		EmergencyFactory.java file returns a SearchAndCheck Object paramaterized with String as the data type.
+
+
+(5) Use of the Observer Pattern :
+		Subject 			: Simulator.java in controller
+		Observer Interface 	: TimeObserver.java in observers
+		Observers 			: Emergency.java in observers
+
+	As mentioned above, Observer Pattern is used to notify each Emergency object that a second had passed in the simulation.
+	Keeping track of elapsedSeconds since the simulation started is important for calculating how many seconds spent on each
+	state and for other calculations such as damage probability and casualty probability. Thereby, Observer Pattern is used 
+	to simply convey the seconds passed to each Emergency object with minimal coupling. 
+
+
+(6) Use of the State Pattern :
+		State pattern is used to model the transitions of an Emergency object in to different states. States Used include Start,
+		End, Low and High. Low and High are only used for Fire Emergencies, whereas Start is only used Flood and Chemical Emergencies. 
+		End is a common state used by all emergencies to indicate the termination of an emergency. A Fire emergency can go from Low
+		to High if unatteded. And if Attended in High state, then the Fire must come down to Low State before going to End State.
+		If the Fire is attended in Low state, then the Fire will directly go to the End State. For Flood emergencies, it must start
+		with Start state and go to End state after the flood end time. For Chemical emergencies, it must also start at Start state
+		and if attended, go to the End state.  
+
+
+(7) Meaningful Use Of Generics :
+		A generic class named SearchAndCheck is used to search a Collection of Objects in their toString() form for a String as well
+		check if a Collection contains a certain element and return true or false accordingly. 
+
+
+	
+	
